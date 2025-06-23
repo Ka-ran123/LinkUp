@@ -1,5 +1,6 @@
 import winston from 'winston';
 import { config } from '../config/env.config';
+import { Boolean, Color, Enviornment, Level } from '../constants/app.contant';
 
 const levels = {
   error: 0,
@@ -10,24 +11,24 @@ const levels = {
 };
 
 const level = (): string => {
-  const env = config.NODE_ENV ?? 'development';
-  const isDevelopment = env === 'development';
-  return isDevelopment ? 'debug' : 'warn';
+  const env = config.NODE_ENV ?? Enviornment.DEVELOPMENT;
+  const isDevelopment = env === Enviornment.DEVELOPMENT;
+  return isDevelopment ? Level.DEBUG : Level.WARN;
 };
 
 const colors = {
-  error: 'red',
-  warn: 'yellow',
-  info: 'green',
-  http: 'magenta',
-  debug: 'white',
+  error: Color.RED,
+  warn: Color.YELLOW,
+  info: Color.GREEN,
+  http: Color.MAGENTA,
+  debug: Color.WHITE,
 };
 
 winston.addColors(colors);
 
 const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
-  winston.format.colorize({ all: true }),
+  winston.format.colorize({ all: Boolean.TRUE }),
   winston.format.printf(
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     (info: any) => `${info.timestamp} ${info.level}: ${info.message}`
