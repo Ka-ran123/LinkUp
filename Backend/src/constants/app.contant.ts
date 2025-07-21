@@ -24,4 +24,16 @@ const Boolean = {
   FALSE: false,
 };
 
-export { Enviornment, Color, Level, Boolean };
+enum UserStatus {
+  ACTIVE = 'active',
+  INACTIVE = 'inactive',
+  ARCHIVED = 'archived',
+}
+
+enum Gender {
+  MALE = 'male',
+  FEMALE = 'female',
+  OTHER = 'other',
+}
+
+export { Enviornment, Color, Level, Boolean, UserStatus, Gender };
