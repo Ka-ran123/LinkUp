@@ -36,4 +36,14 @@ enum Gender {
   OTHER = 'other',
 }
 
-export { Enviornment, Color, Level, Boolean, UserStatus, Gender };
+const JWT_EXPIRATION = '1d';
+
+export {
+  Enviornment,
+  Color,
+  Level,
+  Boolean,
+  UserStatus,
+  Gender,
+  JWT_EXPIRATION,
+};
