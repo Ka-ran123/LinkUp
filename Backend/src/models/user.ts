@@ -1,5 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import { UserStatus } from '../constants/app.contant';
+import { encrypt } from '../utils/utils';
 
 interface IUser extends Document {
   userName: string;
@@ -51,6 +52,13 @@ const UserSchema = new Schema<IUser>(
 
 // Create indexes
 UserSchema.index({ status: 1 });
+
+// Hash password before saving
+UserSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  this.password = await encrypt(this.password);
+  next();
+});
 
 const User = model<IUser>('User', UserSchema);
 
