@@ -38,6 +38,10 @@ enum Gender {
 
 const JWT_EXPIRATION = '1d';
 
+const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/jpg'];
+
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
+
 export {
   Enviornment,
   Color,
@@ -46,4 +50,6 @@ export {
   UserStatus,
   Gender,
   JWT_EXPIRATION,
+  ALLOWED_FILE_TYPES,
+  MAX_FILE_SIZE,
 };
