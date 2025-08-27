@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
     "@types/node": "^24.0.3",
     "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^8.34.1",
@@ -53,6 +54,7 @@
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "argon2": "^0.43.1",
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

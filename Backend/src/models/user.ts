@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import mongoose, { Schema, model, Document } from 'mongoose';
 import { UserStatus } from '../constants/app.contant';
 import { encrypt } from '../utils/utils';
 
@@ -57,6 +57,26 @@ UserSchema.index({ status: 1 });
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   this.password = await encrypt(this.password);
+  next();
+});
+
+// Soft delete: set deletedAt and status to ARCHIVED
+UserSchema.pre('findOneAndUpdate', async function (next) {
+  const update = this.getUpdate() as Record<string, any>;
+
+  if (update?.$set?.deletedAt) {
+    const userId = this.getQuery()._id;
+    // soft delete related documents
+    await Promise.all([
+      mongoose
+        .model('UserDetails')
+        .updateMany(
+          { userId },
+          { deletedAt: new Date(), status: UserStatus.ARCHIVED }
+        ),
+    ]);
+  }
+
   next();
 });
 
