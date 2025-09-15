@@ -36,6 +36,11 @@ enum Gender {
   OTHER = 'other',
 }
 
+enum Roles{
+  ADMIN = 'admin',
+  USER='user',
+}
+
 const JWT_EXPIRATION = '1d';
 
 const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -52,4 +57,5 @@ export {
   JWT_EXPIRATION,
   ALLOWED_FILE_TYPES,
   MAX_FILE_SIZE,
+  Roles,
 };

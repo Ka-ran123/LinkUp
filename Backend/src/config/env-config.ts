@@ -6,7 +6,6 @@ type Config = {
   PORT: string;
   MONGO_URL: string;
   JWT_SECRET: string;
-  JWT_EXPIRATION: string;
   CLOUDINARY_CLOUD_NAME: string;
   CLOUDINARY_API_KEY: string;
   CLOUDINARY_API_SECRET: string;
@@ -17,7 +16,6 @@ export const config: Config = {
   PORT: process.env.PORT as '',
   MONGO_URL: process.env.MONGO_URL as '',
   JWT_SECRET: process.env.JWT_SECRET as '',
-  JWT_EXPIRATION: process.env.JWT_EXPIRATION as '',
   CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME as '',
   CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY as '',
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET as '',

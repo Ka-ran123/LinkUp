@@ -1,4 +1,5 @@
-import User from "./user";
-import UserDetails from "./user-details";
+import Role from './role-model';
+import User from './user-model';
+import UserDetails from './user-details-model';
 
-export { User , UserDetails };
+export { Role, User, UserDetails };

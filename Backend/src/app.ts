@@ -1,9 +1,9 @@
 import express from 'express';
-import './config/database.config';
-import { connectDB } from './config/database.config';
+import './config/database-config';
+import { connectDB } from './config/database-config';
 import Logger from './utils/logger';
-import { config } from './config/env.config';
-import errorHandler from './middlewares/errorHandler.middleware';
+import { config } from './config/env-config';
+import errorHandler from './middlewares/error-handler-middleware';
 
 const app = express();
 

@@ -1,8 +1,8 @@
 // middleware/errorHandler.ts
 import { Request, Response, NextFunction } from 'express';
-import { config } from '../config/env.config';
+import { config } from '../config/env-config';
 import Logger from '../utils/logger';
-import { Enviornment } from '../constants/app.contant';
+import { Enviornment } from '../constants/app-contants';
 import messages from '../utils/message';
 
 /**

@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import { Gender, UserStatus } from '../constants/app.contant';
+import { Gender, UserStatus } from '../constants/app-contants';
 
 interface IUserDetails extends Document {
   userId: Schema.Types.ObjectId;
@@ -79,7 +79,12 @@ const UserDetailsSchema = new Schema<IUserDetails>(
 );
 
 // Create indexes
-UserDetailsSchema.index({ firstName: 'text', lastName: 'text', gender: 1, status: 1 });
+UserDetailsSchema.index({
+  firstName: 'text',
+  lastName: 'text',
+  gender: 1,
+  status: 1,
+});
 
 const UserDetails = model<IUserDetails>('UserDetails', UserDetailsSchema);
 

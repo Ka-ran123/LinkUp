@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
-import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '../constants/app.contant';
+import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '../constants/app-contants';
 import messages from '../utils/message';
 const { INVALID_FILE_TYPE, FILE_TOO_LARGE } = messages.common;
 
