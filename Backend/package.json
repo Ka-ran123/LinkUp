@@ -19,12 +19,15 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.{ts,js}": [
+    "*.{ts,js}": [
+      "prettier --write",
       "eslint --fix",
-      "prettier --write"
+      "tsc --noEmit",
+      "git add"
     ],
-    "src/**/*.{json,md}": [
-      "prettier --write"
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "keywords": [],
