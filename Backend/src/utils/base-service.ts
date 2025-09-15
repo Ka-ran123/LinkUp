@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongoose';
 import { type Params } from '../types/common';
-import { UserStatus } from '../constants/app.contant';
+import { UserStatus } from '../constants/app-contants';
 
 class BaseService {
   protected model: any;

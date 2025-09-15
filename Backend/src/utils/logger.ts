@@ -1,6 +1,6 @@
 import winston from 'winston';
-import { config } from '../config/env.config';
-import { Boolean, Color, Enviornment, Level } from '../constants/app.contant';
+import { config } from '../config/env-config';
+import { Boolean, Color, Enviornment, Level } from '../constants/app-contants';
 
 const levels = {
   error: 0,

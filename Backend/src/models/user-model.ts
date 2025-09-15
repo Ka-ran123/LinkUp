@@ -1,8 +1,9 @@
 import mongoose, { Schema, model, Document } from 'mongoose';
-import { UserStatus } from '../constants/app.contant';
+import { UserStatus } from '../constants/app-contants';
 import { encrypt } from '../utils/utils';
 
 interface IUser extends Document {
+  roleId: Schema.Types.ObjectId;
   userName: string;
   email: string;
   password: string;
@@ -15,6 +16,11 @@ interface IUser extends Document {
 
 const UserSchema = new Schema<IUser>(
   {
+    roleId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Role',
+      required: true,
+    },
     userName: {
       type: String,
       required: true,

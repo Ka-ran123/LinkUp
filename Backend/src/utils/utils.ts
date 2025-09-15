@@ -1,7 +1,7 @@
 import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
-import { config } from '../config/env.config';
-import { JWT_EXPIRATION } from '../constants/app.contant';
+import { config } from '../config/env-config';
+import { JWT_EXPIRATION } from '../constants/app-contants';
 
 /**
  *
