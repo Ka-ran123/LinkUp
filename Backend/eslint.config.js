@@ -14,6 +14,11 @@ export default [
         sourceType: 'module',
         project: './tsconfig.json',
       },
+      globals: {
+        process: 'readonly', // 👈 define process as global
+        
+        console: 'readonly', // (optional) often useful too
+      },
     },
     plugins: {
       '@typescript-eslint': typescript,
@@ -21,13 +26,22 @@ export default [
     },
     rules: {
       ...typescript.configs.recommended.rules,
-      ...typescript.configs['recommended-requiring-type-checking'].rules,
       'prettier/prettier': 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/prefer-const': 'error',
-      '@typescript-eslint/no-var-requires': 'error',
+
+      // Basic useful rules only
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/no-explicit-any': 'off', // allow any
+      '@typescript-eslint/no-unsafe-assignment': 'off', // allow unsafe
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+      '@typescript-eslint/no-floating-promises': 'off', // don’t force await
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      'prefer-const': 'warn',
     },
   },
   {

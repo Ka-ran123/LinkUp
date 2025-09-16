@@ -36,9 +36,9 @@ enum Gender {
   OTHER = 'other',
 }
 
-enum Roles{
+enum Roles {
   ADMIN = 'admin',
-  USER='user',
+  USER = 'user',
 }
 
 const JWT_EXPIRATION = '1d';

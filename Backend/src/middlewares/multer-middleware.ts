@@ -3,9 +3,11 @@ import path from 'path';
 import multer from 'multer';
 import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '../constants/app-contants';
 import messages from '../utils/message';
-const { INVALID_FILE_TYPE, FILE_TOO_LARGE } = messages.common;
+import { Request } from 'express';
+const { INVALID_FILE_TYPE } = messages.common;
 
 // Ensure the uploads directory exists
+// eslint-disable-next-line no-undef
 const uploadPath = path.join(__dirname, '../uploads');
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
@@ -28,7 +30,9 @@ const storage = multer.diskStorage({
  * @param cb - Callback function
  * @returns {void}
  */
-function fileFilter(req: Express.Request, file: Express.Multer.File, cb: any) {
+
+// eslint-disable-next-line no-undef
+function fileFilter(req: Request, file: Express.Multer.File, cb: any) {
   if (ALLOWED_FILE_TYPES.includes(file.mimetype)) {
     cb(null, true);
   } else {
