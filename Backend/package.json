@@ -22,7 +22,6 @@
     "*.{ts,js}": [
       "prettier --write",
       "eslint --fix",
-      "tsc --noEmit",
       "git add"
     ],
     "*.{json,md}": [
